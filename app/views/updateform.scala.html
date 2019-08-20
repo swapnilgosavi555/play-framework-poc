@@ -1,0 +1,18 @@
+@(id:Int,bookform:Form[Book])(implicit request:RequestHeader,messages: play.api.i18n.Messages)
+@import helper._
+<html>
+<head>
+    <title> Update Book</title>
+</head>
+<body>
+<h1>Update Book Record</h1>
+@form(action=routes.BookController.edit(id)){
+@CSRF.formField
+@inputText(bookform("id"))
+@inputText(bookform("bookName"))
+@inputText(bookform("author"))
+<input type="submit" value="Submit">
+}
+</body>
+
+</html>

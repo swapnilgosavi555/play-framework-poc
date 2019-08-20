@@ -1,0 +1,15 @@
+
+@(books:List[Book])
+<html>
+<head>
+    <title>Display All Books</title>
+</head>
+<body>
+<h1>All Books</h1>
+@for(book<-books){
+<p>id:@book.id</p>
+<p>bookName:@book.bookName</p>
+<p>author:@book.author</p>
+}
+</body>
+</html>
