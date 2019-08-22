@@ -1,18 +1,13 @@
 @(id:Int,bookform:Form[Book])(implicit request:RequestHeader,messages: play.api.i18n.Messages)
 @import helper._
-<html>
-<head>
-    <title> Update Book</title>
-</head>
-<body>
+@layout("Update Book"){
 <h1>Update Book Record</h1>
 @form(action=routes.BookController.edit(id)){
 @CSRF.formField
-@inputText(bookform("id"))
-@inputText(bookform("bookName"))
-@inputText(bookform("author"))
-<input type="submit" value="Submit">
-}
-</body>
+@inputText(bookform("id"),'class -> "form-control")
+@inputText(bookform("bookName"),'class -> "form-control")
+@inputText(bookform("author"),'class -> "form-control")
+<button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-plus"></i> Update Book</button>
 
-</html>
+}
+}

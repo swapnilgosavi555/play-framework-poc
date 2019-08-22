@@ -34,12 +34,12 @@ class BookController @Inject()(cc: ControllerComponents) extends AbstractControl
     val list=BooksStore.update(id,book)
     Ok(views.html.displaybook(list))
   }
-def delete(id:Int)= Action{implicit request =>
-  if(BooksStore.checkBook(id)){
- val list1=BooksStore.delete(id)
-  Ok(views.html.displaybook(list1))}
-  else Ok(s"you can't delete book because book not found of id:$id")
-}
+  def delete(id:Int)= Action{implicit request =>
+    if(BooksStore.checkBook(id)){
+      val list1=BooksStore.delete(id)
+      Ok(views.html.displaybook(list1))}
+    else Ok(s"you can't delete book because book not found of id:$id")
+  }
   def getBookById(id: Int) = Action { implicit request =>
     val list = BooksStore.getBookById(id)
     if (list.isEmpty) Ok(s"Book not found of Id:$id")

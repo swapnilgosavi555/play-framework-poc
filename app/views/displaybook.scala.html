@@ -1,15 +1,14 @@
 
 @(books:List[Book])
-<html>
-<head>
-    <title>Display All Books</title>
-</head>
-<body>
+
+@layout("All Books"){
 <h1>All Books</h1>
 @for(book<-books){
 <p>id:@book.id</p>
 <p>bookName:@book.bookName</p>
 <p>author:@book.author</p>
+
+<a class="btn btn-primary" href="@routes.BookController.update(book.id)">update</a>
+<a class="btn btn-danger" href="@routes.BookController.delete(book.id)">delete</a>
 }
-</body>
-</html>
+}
